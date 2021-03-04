@@ -5,6 +5,7 @@
   #:use-module (gnu packages python-web)
   #:use-module (gnu packages machine-learning)
   #:use-module (gnu packages xml)
+  #:use-module (gnu packages check)
   #:use-module (guix packages)
   #:use-module (guix download)
   #:use-module (guix git-download)
@@ -70,4 +71,24 @@
     "Graph Neural Networks with Keras and Tensorflow 2.")
    (description
     "Graph Neural Networks with Keras and Tensorflow 2.")
+   (license license:expat)))
+
+(define-public python-beautysh
+  (package
+   (name "python-beautysh")
+   (version "6.0.1")
+   (source
+    (origin
+     (method url-fetch)
+     (uri (pypi-uri "beautysh" version))
+     (sha256
+      (base32
+       "1qa5q560cfi5wkca261ksqrm2mv99jzw0sjmfv5hyizjhijzvwlx"))))
+   (build-system python-build-system)
+   (native-inputs
+    `(("python-nose" ,python-nose)))
+   (home-page
+    "https://github.com/bemeurer/beautysh")
+   (synopsis "A Bash beautifier for the masses.")
+   (description "A Bash beautifier for the masses.")
    (license license:expat)))
